@@ -606,12 +606,12 @@ canvas {
     .request_book {
         padding: 20px;
         background: #fff;
+
         h4 {
             margin-bottom: -5px;
             font-size: 25px;
             line-height: 1.3;
             color: @purp;
-
         }
 
         .email {
@@ -648,7 +648,12 @@ canvas {
                 transition: background 200ms linear, color 200ms linear;
             }
         }
-
+        @media @mobile {
+            margin-top: 20px;
+            h4 {
+                margin-bottom: 10px;
+            }
+        }
 
     }
 
