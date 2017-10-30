@@ -544,7 +544,7 @@ canvas {
 }
 
 //HOMEPAGE ENDS
-//ARTICLE LISTING
+//ARTICLE LISTING aka CATEGORY
 #listing {
     padding: 50px 0;
     .wrapper {
@@ -602,6 +602,56 @@ canvas {
             }
         }
     }
+
+    .request_book {
+        padding: 20px;
+        background: #fff;
+        h4 {
+            margin-bottom: -5px;
+            font-size: 25px;
+            line-height: 1.3;
+            color: @purp;
+
+        }
+
+        .email {
+            height: 45px;
+            border: 1px solid #fff;
+            border-radius: 5px;
+            padding: 20px;
+            box-shadow: none;
+            @media @mobile {
+                margin: 0 0 5px -5px;
+            }
+        }
+        input {
+            display: inline-block;
+            background: @bg-color;
+            color: grey;
+            font-family: @font-family-text !important;
+            width: 100%;
+        }
+        .button {
+            height: 45px;
+            padding: 6px 20px;
+            margin-top: 5px;
+            border: 1px solid #4AC6B7;
+            border-radius: 5px;
+            color: #fff;
+            background: #4AC6B7;
+            font-weight: bold;
+            width: 100%;
+            &:hover {
+                background: #6184db;
+                border: 2px solid #6184db;
+                color: #fff;
+                transition: background 200ms linear, color 200ms linear;
+            }
+        }
+
+
+    }
+
 }
 
 //ARTICLE LISTING ENDS
@@ -645,140 +695,137 @@ canvas {
             border: 0.7px solid @articleborder;
         }
     }
-}
 
-article {
-    padding: 30px 70px 40px 0;
-    font-size: 18px;
-    line-height: 1.7;
 
-    @media @mobile {
-        padding: 20px 10px;
-    }
-    .context {
-        border: 1px solid #F0F0F0;
-        border-radius: 5px;
-        color: #fff;
-        background: #4AC6B7;
-        margin: 5px 0 40px;
-        padding: 25px 25px 10px;
+    article {
+        padding: 30px 70px 40px 0;
+        font-size: 18px;
+        line-height: 1.7;
+
         @media @mobile {
-            font-size: 20px;
+            padding: 20px 10px;
+        }
+        .context {
+            border: 1px solid #F0F0F0;
+            border-radius: 5px;
+            color: #fff;
+            background: #4AC6B7;
+            margin: 5px 0 40px;
+            padding: 25px 25px 10px;
+            @media @mobile {
+                font-size: 20px;
+            }
+            h4 {
+                padding-top: 0;
+                margin-bottom: 10px;
+                font-weight: 600;
+            }
+            p {
+                font-size: 17px;
+            }
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 7px 0;
+            border-radius: 5px !important;
         }
         h4 {
-            padding-top: 0;
+            padding: 20px 0 5px;
+            font-size: 23px;
+            font-weight: 600;
+        }
+        p {
+            font-size: 18px;
+            margin: 10px 0 15px;
+            @media @mobile {
+                font-size: 16px;
+            }
+        }
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
             margin-bottom: 10px;
-            font-weight: 600;
         }
-        p {
+        blockquote {
+            border-left: 10px solid @purp;
+            margin: 30px 0;
+            padding: 30px;
             font-size: 17px;
-        }
-    }
-    img {
-        max-width: 100%;
-        height: auto;
-        display: block;
-        margin: 7px 0;
-        border-radius: 5px !important;
-    }
-    h4 {
-        padding: 20px 0 5px;
-        font-size: 23px;
-        font-weight: 600;
-    }
-    p {
-        font-size: 18px;
-        margin: 10px 0 15px;
-        @media @mobile {
-            font-size: 16px;
-        }
-    }
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
-        margin-bottom: 10px;
-    }
-    blockquote {
-        border-left: 10px solid @purp;
-        margin: 30px 0;
-        padding: 30px;
-        font-size: 17px;
-        font-style: italic;
-        line-height: 1.8;
-    }
-
-    .forum-link {
-        margin-top: 40px;
-        span {
             font-style: italic;
+            line-height: 1.8;
         }
-    }
 
-}
 
-//ARTICLE SIDE BAR
-.summary,
-.links,
-.video-reel {
-    margin: 45px 15px 15px 15px;
-    .title {
-        margin-bottom: 15px;
-        p {
-            font-weight: 600;
-            font-size: 25px;
+
+    } //ARTICLE SIDE BAR
+    .summary,
+    .links,
+    .video-reel {
+        margin: 45px 15px 15px 15px;
+        .title {
+            margin-bottom: 15px;
+            p {
+                font-weight: 600;
+                font-size: 25px;
+            }
         }
-    }
-    span {
-        padding-top: 3px;
-        font-size: 16px;
-        line-height: .7;
-    }
-    .points {
-        border: 1px solid #F0F0F0;
-        border-radius: 5px;
-        padding: 20px;
-        font-size: 16px;
-        a {
-            line-height: 2.5;
+        span {
+            padding-top: 3px;
+            font-size: 16px;
+            line-height: .7;
         }
-    }
-}
-
-.video-reel {
-    li {
-        display: block;
-        margin: 20px 0;
-        img {
-            width: 100%;
+        .points {
+            border: 1px solid #F0F0F0;
             border-radius: 5px;
-            padding-bottom: 3px;
-        }
-        @media @mobile {
-            mmargin-bottom: 25px;
+            padding: 20px;
+            font-size: 16px;
+            a {
+                line-height: 2.5;
+            }
         }
     }
-}
 
-.readnext {
-    display: inline-block;
-    border: 1px solid #F0F0F0;
-    padding: 25px;
-    line-height: 2;
-    margin-bottom: 50px;
-    .border-radius(5px);
-    span {
-        display: block;
-        color: #9D9D9D;
+    .video-reel {
+        li {
+            display: block;
+            margin: 20px 0;
+            img {
+                width: 100%;
+                border-radius: 5px;
+                padding-bottom: 3px;
+            }
+            @media @mobile {
+                mmargin-bottom: 25px;
+            }
+        }
     }
-    a {
-        padding: 10px 0;
-        color: @purp;
-        font-size: 25px;
-        @media @mobile {
-            line-height: 1.3;
+    .forum-link {
+        margin-bottom: 20px;
+        font-style: italic;
+    }
+    .readnext {
+        display: inline-block;
+        border: 1px solid #F0F0F0;
+        padding: 25px;
+        line-height: 2;
+        margin-bottom: 50px;
+        .border-radius(5px);
+        span {
+            display: block;
+            color: #9D9D9D;
+        }
+        a {
+            padding: 10px 0;
+            color: @purp;
+            font-size: 25px;
+            @media @mobile {
+                line-height: 1.3;
+            }
         }
     }
 }
