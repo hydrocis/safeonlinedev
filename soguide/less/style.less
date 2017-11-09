@@ -483,7 +483,7 @@ canvas {
         right: -65px;
         top: -52px;
         z-index: 1;
-        img {}
+
         @media @mobile {
             position: static;
             img {
@@ -493,53 +493,10 @@ canvas {
         }
     }
     .request_book {
+
         padding: 20px 0;
         font-family: @font-family-text !important;
-        p {
-            font-size: 20px;
-            font-weight: 200;
-            margin-bottom: 0;
-        }
-        span {
-            font-size: 12px;
-            font-family: @font-family-text;
-        }
-        form {
-            margin-top: 20px;
-        }
-        .email {
-            height: 45px;
-            border: 1px solid #fff;
-            border-radius: 50px;
-            padding: 20px;
-            box-shadow: none;
-            @media @mobile {
-                margin: 0 0 5px -5px;
-            }
-        }
-        input {
-            display: inline-block;
-            width: 250px;
-            color: grey;
-            font-family: @font-family-text !important;
-        }
-        .button {
-            height: 45px;
-            padding: 6px 20px;
-            border: 2px solid #fff;
-            background: none;
-            color: #fff;
-            background: #4AC6B7;
-            border-radius: 50px;
-            font-family: @font-family-text !important;
-            font-weight: bold;
-            &:hover {
-                background: #6184db;
-                border: 2px solid #6184db;
-                color: #fff;
-                transition: background 200ms linear, color 200ms linear;
-            }
-        }
+
     }
 }
 
@@ -604,54 +561,38 @@ canvas {
     }
 
     .request_book {
-        padding: 20px;
+        padding: 25px 25px 35px;
         background: #fff;
 
         h4 {
-            margin-bottom: -5px;
-            font-size: 25px;
+            margin-bottom: 5px;
+            font-size: 23px;
             line-height: 1.3;
             color: @purp;
         }
+        span {
+            font-size: 16px;
+        }
+        ul {
+            margin-top: 15px;
+        }
+        li {
+            display: inline;
+            margin: 5px 2px;
 
-        .email {
-            height: 45px;
-            border: 1px solid #fff;
-            border-radius: 5px;
-            padding: 20px;
-            box-shadow: none;
-            @media @mobile {
-                margin: 0 0 5px -5px;
-            }
-        }
-        input {
-            display: inline-block;
-            background: @bg-color;
-            color: grey;
-            font-family: @font-family-text !important;
-            width: 100%;
-        }
-        .button {
-            height: 45px;
-            padding: 6px 20px;
-            margin-top: 5px;
-            border: 1px solid #4AC6B7;
-            border-radius: 5px;
-            color: #fff;
-            background: #4AC6B7;
-            font-weight: bold;
-            width: 100%;
-            &:hover {
-                background: #6184db;
-                border: 2px solid #6184db;
-                color: #fff;
-                transition: background 200ms linear, color 200ms linear;
-            }
-        }
-        @media @mobile {
-            margin-top: 20px;
-            h4 {
-                margin-bottom: 10px;
+            a {
+                padding: 5px 12px;
+                border: 1px solid @purp;
+                border-radius: 3px;
+                color: @purp;
+                font-size: 13px;
+                &:hover {
+                    color: #fff;
+                    background: @purp;
+                    font-weight: bold;
+                    .transition;
+
+                }
             }
         }
 
