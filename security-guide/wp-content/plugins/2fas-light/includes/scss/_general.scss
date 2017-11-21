@@ -1,0 +1,36 @@
+.toplevel_page_twofas-light-menu {
+  a {
+    img {
+      width: 20px;
+      height: 20px;
+    }
+  }
+}
+
+@media all and (max-width: 782px) {
+  .visible-phone {
+    display: block !important;
+  }
+
+  .hidden-phone {
+    display: none !important;
+  }
+
+  .hidden-phone-inline {
+    display: none;
+  }
+}
+
+@media all and (min-width: 783px) {
+  .visible-phone {
+    display: none;
+  }
+
+  .hidden-phone {
+    display: block;
+  }
+
+  .hidden-phone-inline {
+    display: inline-block;
+  }
+}

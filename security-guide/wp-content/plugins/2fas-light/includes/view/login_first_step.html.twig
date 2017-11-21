@@ -1,0 +1,32 @@
+<input name="twofas_light_step_token" type="hidden" value="{{ twofas_light_step_token }}" />
+
+{% if interim_login is not empty %}
+    <input name="interim-login" type="hidden" value="{{ interim_login }}" />
+{% endif %}
+
+<p class="forgetmenot">
+    <label for="rememberme">
+        <input name="rememberme" id="rememberme" value="forever" type="checkbox" /> Remember Me
+    </label>
+</p>
+
+<p class="submit">
+    <input class="button button-primary button-large" type="submit" name="wp-submit" id="wp-submit" value="Log In"/>
+</p>
+
+</form>
+
+<div class="twofaslight-login-footer">
+    <img class="twofaslight-login-badge" src="{{twofas_plugin_path}}/includes/img/2fas.png" height="45" alt="2FAS logo" />
+    <span class="twofaslight-login-footer-tooltip">This site is secured by 2FAS Light</span>
+</div>
+
+<script>
+    jQuery( document ).ready(function() {
+        var query = window.location.search;
+
+        if ( query.indexOf( 'interim-login=1' ) >= 0 || query.indexOf( 'interim-login=true' ) >= 0 ) {
+            jQuery( '.twofaslight-login-footer' ).css( 'display', 'none' );
+        }
+    });
+</script>

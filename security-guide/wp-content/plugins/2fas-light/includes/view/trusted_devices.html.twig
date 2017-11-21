@@ -1,0 +1,56 @@
+<div class="hidden-phone">
+    <div class="twofas-light-trusted-devices-wrapper">
+        <div class="twofas-light-trusted-devices-header">
+            <div class="twofas-light-trusted-devices-column twofas-light-device">Browser and device</div>
+            <div class="twofas-light-trusted-devices-column twofas-light-date">Added on</div>
+            <div class="twofas-light-trusted-devices-column twofas-light-ip">IP Address</div>
+            <div class="twofas-light-trusted-devices-column twofas-light-remove">Remove</div>
+        </div>
+        <div class="twofas-light-trusted-devices-row">
+            {% if trusted_devices is empty %}
+                <p class="text-center">You don't have any trusted devices</p>
+            {% endif %}
+            {% for device_id, trusted_device in trusted_devices %}
+                <div class="twofas-light-trusted-devices-column twofas-light-device">{{ describe_device(trusted_device.user_agent) }}</div>
+                <div class="twofas-light-trusted-devices-column twofas-light-date">{{ timestamp_to_wp_datetime(trusted_device.timestamp) }}</div>
+                <div class="twofas-light-trusted-devices-column twofas-light-ip">{{ trusted_device.ip }}</div>
+                <div class="twofas-light-trusted-devices-column twofas-light-remove">
+                    <button class="twofas-light-remove-device-button" data-device="{{ device_id }}">
+                        <span class="icon-bin"></span>
+                    </button>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+<div class="visible-phone twofas-light-trusted-devices-wrapper-phone">
+    {% if trusted_devices is empty %}
+        <p>
+            <strong>You don't have any trusted devices</strong>
+        </p>
+    {% endif %}
+
+    {% for device_id, trusted_device in trusted_devices %}
+        <div>
+            <div><p><strong>Browser and device</strong></p></div>
+            <div><p>{{ describe_device(trusted_device.user_agent) }}</p></div>
+        </div>
+        <div>
+            <div><p><strong>Added on</strong></p></div>
+            <div><p>{{ timestamp_to_wp_datetime(trusted_device.timestamp) }}</p></div>
+        </div>
+        <div>
+            <div><p><strong>IP Address</strong></p></div>
+            <div><p>{{ trusted_device.ip }}</p></div>
+        </div>
+        <div>
+            <div><p><strong>Remove</strong></p></div>
+            <div>
+                <button class="twofas-light-remove-device-button" data-device="{{ device_id }}">
+                    <span class="icon-bin"></span>
+                </button>
+            </div>
+        </div>
+    {% endfor %}
+</div>

@@ -1,0 +1,33 @@
+{
+  "vars": {},
+  "css": [
+    "code.less",
+    "tables.less",
+    "forms.less",
+    "buttons.less",
+    "glyphicons.less",
+    "button-groups.less",
+    "input-groups.less",
+    "labels.less",
+    "badges.less",
+    "alerts.less",
+    "panels.less",
+    "wells.less",
+    "close.less",
+    "tooltip.less",
+    "popovers.less",
+    "modals.less",
+    "utilities.less",
+    "responsive-utilities.less",
+    "component-animations.less"
+  ],
+  "js": [
+    "alert.js",
+    "button.js",
+    "modal.js",
+    "tooltip.js",
+    "popover.js",
+    "affix.js",
+    "transition.js"
+  ]
+}

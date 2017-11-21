@@ -1,0 +1,315 @@
+@import 'variables';
+
+.twofas-light-wrapper {
+  overflow: hidden;
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+
+  .twofas-light-logo-header {
+    padding-top: 10px;
+    line-height: 20px;
+    margin-bottom: 15px;
+
+    img {
+      vertical-align: middle;
+      display: inline-block;
+      margin-right: 5px;
+      width: 40px !important;
+      height: 40px !important;
+    }
+
+    h1 {
+      vertical-align: middle;
+      display: inline-block;
+      font-size: 2em;
+      font-weight: 100;
+    }
+
+    .notice {
+      margin-top: 15px;
+    }
+  }
+
+  .twofas-light-slider-wrapper {
+    background-color: $twofas-light-gray;
+    padding-left: 20px;
+    color: white;
+    line-height: 4em;
+
+    .twofas-light-toggle-switch {
+      position: relative;
+      display: inline-block;
+      width: 60px;
+      height: 28px;
+      vertical-align: middle;
+
+      input {
+        display: none;
+      }
+
+      input[type="checkbox"] + label {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #ccc;
+        -webkit-transition: .4s;
+        transition: .4s;
+        border-radius: 34px;
+      }
+
+      input[type="checkbox"] + label:before {
+        position: absolute;
+        content: "";
+        height: 21px;
+        width: 21px;
+        left: 6px;
+        bottom: 3px;
+        background-color: white;
+        -webkit-transition: .4s;
+        transition: .4s;
+        border-radius: 50%;
+      }
+
+      input[type="checkbox"]:checked + label {
+        background-color: #66a44a;
+      }
+
+      input[type="checkbox"]:focus + label {
+        box-shadow: 0 0 1px #66a44a;
+      }
+
+      input[type="checkbox"]:checked + label:before {
+        -webkit-transform: translateX(26px);
+        -ms-transform: translateX(26px);
+        transform: translateX(26px);
+      }
+    }
+  }
+
+  .twofas-light-card {
+    background-color: white;
+    padding: 20px;
+    margin-top: 20px;
+
+    .twofas-light-totp-configuration {
+      .twofas-light-step-label {
+        color: $twofas-light-gray;
+        font-size: 15px;
+        font-weight: bold;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        display: block;
+
+        &:first-child {
+          margin-top: 0;
+        }
+      }
+
+      .twofas-light-status-label {
+        cursor: default;
+        margin-top: 20px !important;
+      }
+
+      .twofas-light-red {
+        color: #a4453f;
+        font-weight: bold;
+
+        &::after {
+          position: relative;
+          left: 2px;
+        }
+      }
+
+      .twofas-light-green {
+        color: #66a44a;
+        font-weight: bold;
+
+        &::after {
+          position: relative;
+          left: 2px;
+        }
+      }
+
+      .twofas-light-store-logo {
+        width: 160px !important;
+        height: 55px !important;
+      }
+
+      .twofas-light-phone-reload-qr-code {
+        width: 150px;
+        margin-bottom: 5px;
+        background-color: $twofas-light-gray;
+        border: 1px solid gray;
+        color: white;
+        text-align: center;
+        text-decoration: none;
+        font-size: 12px;
+        cursor: pointer;
+        position: relative;
+        border-radius: 2px;
+        height: 25px;
+      }
+
+      .twofas-light-qr-code-wrapper {
+        position: relative;
+
+        .twofas-light-uncover-button {
+          position: absolute;
+          z-index: 100;
+          width: 100px;
+          background-color: $twofas-light-gray;
+          display: block;
+          border: 1px solid gray;
+          color: white;
+          text-align: center;
+          text-decoration: none;
+          font-size: 12px;
+          cursor: pointer;
+          border-radius: 5px;
+          height: 30px;
+          left: 50px;
+          top: 80px;
+        }
+
+        .twofas-light-qr-code {
+          width: $twofas-light-qr-code-size;
+          height: $twofas-light-qr-code-size;
+          padding: 0;
+        }
+
+        .twofas-light-opacity {
+          opacity: 0.1;
+          outline: black solid 2px;
+          outline-offset: -4px;
+        }
+
+        .twofas-light-reload-qr-code-button {
+          border: none;
+          background-color: white;
+          padding: 3px;
+          width: 30px;
+          height: 30px;
+          cursor: pointer;
+          position: absolute;
+          top: 0;
+
+          &:focus {
+            outline: none;
+          }
+
+          &:disabled {
+            cursor: wait;
+          }
+        }
+
+        .twofas-light-reload-qr-info {
+          background-color: white;
+          border: none;
+          padding: 3px;
+          width: 30px;
+          height: 30px;
+          position: absolute;
+          top: 0;
+          margin-left: 29px;
+          margin-top: 1px;
+          font-size: 1.5em;
+
+          img {
+            width: 20px;
+            height: 20px;
+          }
+        }
+
+        .twofas-light-qr-code {
+          image-rendering: pixelated;
+        }
+      }
+
+      .twofas-light-private-key-paragraph {
+        @media all and (min-width: 783px) {
+          position: relative;
+          top: -30px;
+          left: 210px;
+        }
+      }
+
+      .twofas-light-clickable-text {
+        color: $twofas-light-gray;
+        text-decoration: underline;
+        cursor: pointer;
+      }
+
+      .twofas-light-private-key-display {
+        margin-top: -40px;
+        margin-bottom: 20px;
+        display: none;
+
+        @media all and (max-width: 783px) {
+          margin-top: 10px;
+        }
+      }
+
+      .twofas-light-configure-button {
+        width: 100px;
+        background-color: $twofas-light-gray;
+        border: 1px solid gray;
+        color: white;
+        text-align: center;
+        text-decoration: none;
+        font-size: 12px;
+        cursor: pointer;
+        position: relative;
+        border-radius: 2px;
+        height: 25px;
+      }
+
+      a {
+        text-decoration: none;
+      }
+    }
+
+    p {
+      color: dimgray;
+      margin-top: 5px;
+    }
+  }
+
+  .twofas-light-disabled {
+    &::after {
+      content: ' ';
+      display: inline-block;
+      vertical-align: middle;
+      width: 16px;
+      height: 16px;
+      background: url("../img/loading.gif") no-repeat;
+    }
+  }
+
+  .twofas-light-not-clickable {
+    pointer-events: none;
+    cursor: default;
+  }
+
+  .twofas-light-classy-font {
+    font-family: 'Bilbo Swash Caps', cursive;
+    font-size: 120%;
+  }
+
+  .twofas-light-dimmed {
+    &::before {
+      content: " ";
+      z-index: 10;
+      display: block;
+      position: absolute;
+      height: 100%;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: rgba(200, 200, 200, 0.9);
+      width: $twofas-light-qr-code-size;
+    }
+  }
+}

@@ -1,0 +1,79 @@
+<div id="error-wrapper">
+    {% if twofas_light_error_message is not empty %}
+        <div id="login_error">{{ twofas_light_error_message }}</div>
+    {% endif %}
+</div>
+
+<form method="post" action="" id="twofas-light-loginform" class="twofas-light-login-form">
+    <p class="login-username">
+        <label for="twofas_code">Enter your token:</label>
+        <input type="text"
+               name="twofas_light_totp_token"
+               id="twofas_code"
+               autocomplete="off"
+               minlength="6"
+               maxlength="6"
+               pattern="\d{6}"
+               title="Six digits"
+               required="required"
+               autofocus="autofocus" />
+    </p>
+
+    <input name="twofas_light_step_token" type="hidden" value="{{ twofas_light_step_token }}" />
+
+    {% if rememberme is not empty %}
+        <input name="rememberme" type="hidden" value="{{ rememberme }}" />
+    {% endif %}
+
+    {% if redirect_to is not empty %}
+        <input name="redirect_to" type="hidden" value="{{ redirect_to }}" />
+    {% endif %}
+
+    {% if testcookie is not empty %}
+        <input name="testcookie" type="hidden" value="{{ testcookie }}" />
+    {% endif %}
+
+    {% if reauth is not empty %}
+        <input name="reauth" type="hidden" value="{{ reauth }}" />
+    {% endif %}
+
+    {% if interim_login is not empty %}
+        <input name="interim-login" type="hidden" value="{{ interim_login }}" />
+    {% endif %}
+
+    {% if twofas_light_save_device_as_trusted %}
+        <p class="forgetmenot">
+            <input type="checkbox"
+                   name="twofas_light_save_device_as_trusted"
+                   id="twofas_light_device_checkbox"
+                   checked="checked" />
+            <label for="twofas_light_device_checkbox">Remember device</label>
+        </p>
+    {% else %}
+        <p class="forgetmenot">
+            <input type="checkbox" name="twofas_light_save_device_as_trusted" id="twofas_light_device_checkbox" />
+            <label for="twofas_light_device_checkbox">Remember device</label>
+        </p>
+    {% endif %}
+
+    <p class="submit">
+        <input class="button button-primary button-large" type="submit" name="wp-submit" id="wp-submit" value="Log In" />
+    </p>
+
+    <div class="twofas-light-login-bottom-nav">
+        <div class="twofas-light-login-bottom-nav-message">
+            {% if interim_login is not empty %}
+                <a href="{{login_url}}?interim-login={{ interim_login }}">Go back to the logging in</a>
+            {% else %}
+                <a href="{{login_url}}">Go back to the logging in</a>
+            {% endif %}
+        </div>
+    </div>
+</form>
+
+{% if not interim_login %}
+    <div class="twofaslight-login-footer">
+        <img class="twofaslight-login-badge" src="{{twofas_plugin_path}}/includes/img/2fas.png" height="45" alt="2FAS logo" />
+        <span class="twofaslight-login-footer-tooltip">This site is secured by 2FAS Light</span>
+    </div>
+{% endif %}

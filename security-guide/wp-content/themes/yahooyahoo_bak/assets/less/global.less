@@ -1,0 +1,219 @@
+@import url(fonts.less);
+
+@font-color: #444444;
+@bg-color: #F4F4F4;
+
+@font-family-text: 'SuisseIntl', sans-serif;
+@font-family-header:'Merriweather', sans-serif;
+
+/** Media Query **/
+
+@highdensity: ~"only screen and (-webkit-min-device-pixel-ratio: 1.5)",
+~"only screen and (min--moz-device-pixel-ratio: 1.5)",
+~"only screen and (-o-min-device-pixel-ratio: 3/2)",
+~"only screen and (min-device-pixel-ratio: 1.5)";
+@mobile: ~"only screen and (max-width: 529px)";
+@tablet: ~"only screen and (min-width: 530px) and (max-width: 949px)";
+.border (@weight: 1px, @alpha: .3) {
+	border-color: rgba(93, 96, 102, @alpha);
+	border-width: @weight;
+	border-style: solid;
+}
+
+.transition(@time: .2s) {
+	-webkit-transition: all @time ease-in;
+	-moz-transition: all @time ease-in;
+	-o-transition: all @time ease-in;
+	transition: all @time ease-in;
+}
+
+.transitin {
+	-webkit-transition: .3s;
+	-moz-transition: .3s;
+	-o-transition: .3s;
+	-ms-transition: .3s;
+	transition: .3s;
+}
+
+.transform(@degree) {
+	-moz-transform: rotate(@degree);
+	-o-transform: rotate(@degree);
+	-webkit-transform: rotate(@degree);
+	-ms-transform: rotate(@degree);
+	-ms-transform: rotate(@degree);
+}
+
+
+/**** Animation *****/
+
+.animate-something {
+	-webkit-transition: all 0.3s ease;
+	-moz-transition: all 0.3s ease;
+	-ms-transition: all 0.3s ease;
+	-o-transition: all 0.3s ease;
+	transition: all 0.3s ease;
+}
+
+.i-animat {
+	-moz-transition-property: background-color;
+	-webkit-transition-property: background-color;
+	-o-transition-property: background-color;
+	transition-property: background-color;
+	-moz-transition-duration: .07s;
+	-webkit-transition-duration: .07s;
+	-o-transition-duration: .07s;
+	transition-duration: .07s;
+	-moz-transition-timing-function: ease-in;
+	-webkit-transition-timing-function: ease-in;
+	-o-transition-timing-function: ease-in;
+	transition-timing-function: ease-in;
+}
+
+.clear {
+	display: table;
+	clear: both;
+	content: " ";
+}
+
+.border-radius(@radius: 4px) {
+	-moz-border-radius: @radius;
+	-webkit-border-radius: @radius;
+	-o-border-radius: @radius;
+	-ms-border-radius: @radius;
+	-khtml-border-radius: @radius;
+	border-radius: @radius;
+}
+
+html,
+body {
+	position: relative;
+	height: 100%;
+}
+
+body {
+	background: @bg-color;
+	color: @font-color;
+	font-family: @font-family-text;
+	-webkit-font-smoothing: antialiased;
+	-moz-font-smoothing: antialiased;
+	-o-font-smoothing: antialiased;
+	font-smoothing: antialiased;
+	font-size: 17px;
+	font-style: normal;
+	font-variant: normal;
+	vertical-align: baseline;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-family: @font-family-header;
+	margin: 0;
+	font-weight: bold;
+}
+
+p {
+	letter-spacing: .5px;
+}
+
+// h1 {
+// 	font-size: 48px;
+// }
+
+// h2 {
+// 	font-size: 40px;
+// }
+
+// h3 {
+// 	font-size: 32px;
+// }
+
+// h4 {
+// 	font-size: 24px;
+// }
+
+// h5 {
+// 	font-size: 16px;
+// }
+
+// h6 {
+// 	font-size: 12px;
+// }
+
+a {
+	text-decoration: none;
+}
+
+* input,
+* textarea {
+	-webkit-user-select: initial;
+	-moz-user-select: initial;
+	-khtml-user-select: initial;
+	-ms-user-select: initial;
+}
+
+a {
+	text-decoration: none !important;
+	outline: none;
+	&:active {
+		background-color: transparent;
+	}
+	&:hover {
+		text-decoration: none;
+	}
+}
+
+strong {
+	font-weight: 400;
+}
+
+ul,
+li {
+	padding: 0;
+	margin: 0;
+}
+
+textarea:focus,
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="datetime"]:focus,
+input[type="datetime-local"]:focus,
+input[type="date"]:focus,
+input[type="month"]:focus,
+input[type="time"]:focus,
+input[type="week"]:focus,
+input[type="number"]:focus,
+input[type="email"]:focus,
+input[type="url"]:focus,
+input[type="search"]:focus,
+input[type="tel"]:focus,
+input[type="color"]:focus,
+.uneditable-input:focus {
+	border-color: rgba(126, 239, 104, 0);
+	box-shadow: none;
+	outline: none;
+	border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+
+/* Fix for menu */
+
+.mega-sub-menu {
+	width: 250px !important;
+	@media @mobile {
+		width: auto !important;
+	}
+	>li {
+		font-size: 12px !important;
+		a.mega-menu-link {
+			color: #fff !important;
+			background: #384376 !important;
+			&:hover {
+				background: #485699 !important;
+			}
+		}
+	}
+}

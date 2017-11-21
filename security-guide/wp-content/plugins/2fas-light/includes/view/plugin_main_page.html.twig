@@ -1,0 +1,155 @@
+{{ nonce_field | raw }}
+
+<div class="twofas-light-wrapper wrap">
+    <div class="twofas-light-logo-header">
+        <img src="{{ twofas_plugin_path ~ '/includes/img/2fas.png' }}" alt="2FAS Logo" />
+        <h1>2FAS - Two Factor Authentication Service <span class="twofas-light-classy-font">light</span></h1>
+    </div>
+
+    <div id="twofas-light-notifications"></div>
+
+    {% if twofas_full_plugin_is_active %}
+        <div class="twofas-light-card">
+            <span>
+                <strong>
+                    In order to use 2FAS Light plugin, please deactivate 2FAS plugin.
+                    At the same time, we encourage to keep using 2FAS plugin
+                    since it's offering more features and possibilities.
+                </strong>
+            </span>
+        </div>
+    {% else %}
+        <h2>2FAS Tokens</h2>
+
+        <div class="twofas-light-slider-wrapper">
+            {% if twofas_light_totp_status == 'totp_enabled' %}
+                <span id="twofas-light-status-description">Turn off two factor authentication:</span>
+                <div class="twofas-light-toggle-switch">
+                    <input id="totp-disable" class="totp-enable-disable" type="checkbox" checked="checked" />
+                    <label for="totp-disable" id="enable-disable-slider"></label>
+                </div>
+            {% elseif twofas_light_totp_status == 'totp_disabled' %}
+                <span id="twofas-light-status-description">Turn on two factor authentication:</span>
+                <div class="twofas-light-toggle-switch">
+                    <input id="totp-enable" class="totp-enable-disable" type="checkbox" />
+                    <label for="totp-enable" id="enable-disable-slider"></label>
+                </div>
+            {% else %}
+                <span id="twofas-light-status-description">Two factor authentication is not configured</span>
+            {% endif %}
+        </div>
+
+        <div class="twofas-light-card">
+            <div class="twofas-light-totp-configuration">
+                <span class="twofas-light-step-label">Configuration</span>
+
+                <div id="twofas-light-status-wrapper">
+                    {% if twofas_light_totp_status == 'totp_enabled' %}
+                        <span class="twofas-light-status-label">Status:</span>
+                        <span id="twofas-light-status-label-status" class="twofas-light-green">ENABLED</span>
+                    {% elseif twofas_light_totp_status == 'totp_disabled' %}
+                        <span class="twofas-light-status-label">Status:</span>
+                        <span id="twofas-light-status-label-status" class="twofas-light-red">DISABLED</span>
+                    {% endif %}
+                </div>
+
+                <p>Follow this instructions to configure 2FAS tokens protection correctly.</p>
+
+                <span class="twofas-light-step-label">STEP 1:</span>
+
+                <p>
+                    Download app to your smartphone to start using tokens.
+                    We recommend Google Authenticator, Microsoft Authenticator and Authy,
+                    but feel free choose your favourite app.
+                </p>
+
+                <a href="https://play.google.com/store/apps/details?id=com.google.android.apps.authenticator2" target="_blank">
+                    <img class="twofas-light-store-logo" src="{{ twofas_plugin_path ~ '/includes/img/gp_store.png' }}" />
+                </a>
+
+                <a href="https://itunes.apple.com/us/app/google-authenticator/id388497605?mt=8" target="_blank">
+                    <img class="twofas-light-store-logo" src="{{ twofas_plugin_path ~ '/includes/img/a_store.png' }}" />
+                </a>
+
+                <a href="https://www.microsoft.com/en-us/store/apps/authenticator/9wzdncrfj3rj" target="_blank">
+                    <img class="twofas-light-store-logo" src="{{ twofas_plugin_path ~ '/includes/img/w_store.png' }}" />
+                </a>
+
+                <span class="twofas-light-step-label">STEP 2:</span>
+
+                <p>Please, scan following QR code with your app.</p>
+
+                <div class="visible-phone">
+                    <button type="button" class="twofas-light-phone-reload-qr-code twofas-light-reload-qr-code">
+                        <span class="icon-loop2"></span>
+                        Reload QR Code
+                    </button>
+                </div>
+
+                <div class="twofas-light-qr-code-wrapper" id="qr-code-cover">
+                    <button type="button" class="twofas-light-uncover-button">Show QR Code</button>
+                    <img id="qr_code" class="twofas-light-qr-code twofas-light-opacity" src="{{ qr_code }}" alt="TOTP" />
+                    <button type="button"
+                            class="twofas-light-reload-qr-code-button hidden-phone-inline twofas-light-reload-qr-code"
+                            id="twofas-light-reload-qr-code">
+                        <span class="icon-loop2"></span>
+                    </button>
+                    <div class="hidden-phone-inline">
+                        <button class="twofas-light-reload-qr-info twofas-light-tooltip">
+                            <img src="{{ twofas_plugin_path ~ '/includes/img/info_icon.png'}}" />
+                            <span class="twofas-light-tooltip-text">
+                                Click the <span class="icon-loop2"></span> button to reload QR code
+                            </span>
+                        </button>
+                    </div>
+                </div>
+
+                <p class="twofas-light-private-key-paragraph">
+                    Instead of using QR code you can
+                    <span id="twofas-light-show-totp-private-key-button" class="twofas-light-clickable-text">
+                        enter your private key manually
+                    </span>
+                </p>
+
+                <div class="twofas-light-private-key-display" id="twofas-light-totp-private-key">
+                    Your private key: <span id="totp_secret">{{ totp_secret }}</span>
+                </div>
+
+                <span class="twofas-light-step-label">STEP 3:</span>
+                <p>Enter 6-digit token generated by the app and click "Enable" button to finish configuration.</p>
+
+                <div id="totp-configuration-form">
+                    <form action="" id="totp-form" method="post">
+                        <label for="totp_token_field">Token:</label>
+                        <input id="totp_token_field"
+                               name="twofas-light[totp-token]"
+                               type="text"
+                               autocomplete="off"
+                               minlength="6"
+                               maxlength="6"
+                               required="required"
+                               pattern="\d{6}"
+                               title="Six digits" />
+                        <span id="twofas-light-configure-submit-wrapper">
+                            <input type="submit" class="twofas-light-configure-button" value="Enable" />
+                        </span>
+                        <input id="totp_secret_field" name="twofas-light[totp-secret]" type="hidden" value="{{ totp_secret }}" />
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <h2>Trusted devices</h2>
+        <p>
+            Following list contains all of your trusted devices.
+            When you are using a trusted device, you don't need to enter a verification token each time you log in.
+            Ensure that this list is up to date and remove unnecessary devices.
+        </p>
+
+        <div class="twofas-light-trusted-devices">
+            {% include 'trusted_devices.html.twig' with {
+                'trusted_devices': trusted_devices
+            } %}
+        </div>
+    {% endif %}
+</div>

@@ -1,0 +1,79 @@
+@import 'variables';
+
+.twofas-light-trusted-devices-wrapper,
+.twofas-light-trusted-devices-wrapper-phone {
+  background-color: white;
+  padding-bottom: 5px;
+  position: relative;
+
+  .twofas-light-trusted-devices-header,
+  .twofas-light-trusted-devices-row {
+    padding: 5px;
+  }
+
+  .twofas-light-trusted-devices-column {
+    margin: 0;
+    font-size: 0.9em;
+    font-weight: 100;
+    display: inline-block;
+    padding-top: 4px;
+    padding-left: 4px;
+    padding-bottom: 4px;
+  }
+
+  .text-center {
+    text-align: center;
+  }
+
+  .twofas-light-remove-device-button {
+    border: none;
+    background-color: white;
+    cursor: pointer;
+
+    &::after {
+      position: relative;
+      left: 0;
+      bottom: 3px;
+    }
+  }
+
+  .twofas-light-trusted-devices-header {
+    background-color: $twofas-light-gray;
+    color: white;
+  }
+
+  .twofas-light-trusted-devices-row {
+    background-color: white;
+    color: $twofas-light-gray;
+
+    strong {
+      margin-left: 20px;
+    }
+  }
+
+  .twofas-light-device {
+    width: 30%;
+  }
+
+  .twofas-light-date {
+    width: 30%;
+  }
+
+  .twofas-light-ip {
+    width: 25%;
+  }
+
+  .twofas-light-remove {
+    position: absolute;
+    right: 10px;
+    width: 6%;
+    text-align: center;
+  }
+}
+
+.twofas-light-trusted-devices-wrapper-phone {
+  padding-left: 10px;
+  padding-bottom: 5px;
+  padding-top: 5px;
+  text-align: center;
+}

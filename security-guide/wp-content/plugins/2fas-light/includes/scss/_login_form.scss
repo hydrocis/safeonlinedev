@@ -1,0 +1,38 @@
+#twofas-light-loginform {
+  padding-bottom: 20px !important;
+}
+
+.twofas-light-login-bottom-nav {
+  margin-top: 30px;
+  padding-top: 10px;
+  margin-bottom: 0;
+  text-align: right;
+
+  .twofas-light-login-bottom-nav-message {
+    float: left;
+    margin-top: 10px;
+  }
+}
+
+.twofaslight-login-footer {
+  position: absolute;
+  bottom: 30px;
+  right: 30px;
+
+  &:hover .twofaslight-login-footer-tooltip {
+    display: inline;
+  }
+
+  .twofaslight-login-footer-tooltip {
+    display: none;
+    width: 250px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+    margin-top: 3px;
+    margin-right: 4px;
+    float: left;
+  }
+}
