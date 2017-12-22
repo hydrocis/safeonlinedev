@@ -84,11 +84,11 @@ header {
                 a {
                     display: block;
                     padding: 8px 10px;
-                    color: #fff;
+                    color: @white;
                     text-decoration: none;
                     transition: background 200ms linear, color 200ms linear;
                     &:hover {
-                        color: #fff;
+                        color: @white;
                     }
                 }
                 ul.dropdown {
@@ -102,10 +102,10 @@ header {
                         display: block;
                         a {
                             display: block;
-                            color: #fff;
+                            color: @white;
                             text-decoration: none;
                             &:hover {
-                                color: #fff;
+                                color: @white;
                                 background: darken(#6184db, 10%);
                                 .transition;
                             }
@@ -159,7 +159,7 @@ header {
         min-height: 200px;
     }
     .blurb {
-        color: #fff;
+        color: @white;
         h1 {
             font-size: 37px;
             color: #F1D564;
@@ -179,14 +179,14 @@ header {
             }
         }
         .blue_btn {
-            border: 2px solid #fff;
+            border: 2px solid @white;
             padding: 13px 22px;
             border-radius: 50px;
-            color: #fff;
+            color: @white;
             &:hover {
                 background: #6184db;
                 border: 2px solid #6184db;
-                color: #fff;
+                color: @white;
                 transition: background 200ms linear, color 200ms linear;
             }
         }
@@ -218,7 +218,7 @@ canvas {
 .count-particles {
     -webkit-user-select: none;
     border-radius: 0 0 3px 3px;
-    color: #fff; //	font-family: Helvetica,
+    color: @white; //	font-family: Helvetica,
     //Arial,
     //sans-serif;
     font-size: .8em;
@@ -256,7 +256,7 @@ canvas {
 
 #user-roles {
     padding: 50px 30px;
-    background: #fff;
+    background: @white;
     h4 {
         font-size: 30px;
         font-weight: 400;
@@ -294,7 +294,7 @@ canvas {
                     padding: 15px 20px;
                     border-right: 1px solid rgba(255, 255, 255, 0.2);
                     background: @purp;
-                    color: #fff;
+                    color: @white;
                     .transition;
                     text-align: center;
                     &:hover {
@@ -320,7 +320,7 @@ canvas {
         box-shadow: 0 33px 40px 0 rgba(177, 185, 205, 0.5);
         .border-radius(5px);
         .content {
-            background: #fff;
+            background: @white;
             padding: 20px;
             height: 175px;
             border-top-left-radius: 5px;
@@ -376,7 +376,7 @@ canvas {
             }
             .count {
                 background: #aaa;
-                color: #fff !important;
+                color: @white !important;
             }
         }
     }
@@ -389,7 +389,7 @@ canvas {
 
 #scenario {
     padding: 40px 30px;
-    background: #fff;
+    background: @white;
     .scenario-wrap {
         display: flex;
         flex-direction: row;
@@ -411,7 +411,7 @@ canvas {
                 display: none;
             }
             > a {
-                background: #fff;
+                background: @white;
                 color: inherit;
                 border: 1px solid #ededed;
                 display: block;
@@ -430,7 +430,7 @@ canvas {
                     }
                     .count {
                         background: #aaa;
-                        color: #fff;
+                        color: @white;
                     }
                 }
                 h2 {
@@ -466,7 +466,7 @@ canvas {
 #getguide {
     background: #4ac6b7;
     padding: 60px;
-    color: #fff;
+    color: @white;
     font-size: 18px;
     height: 439px;
     @media @mobile {
@@ -562,7 +562,7 @@ canvas {
 
     .request_book {
         padding: 25px 25px 35px;
-        background: #fff;
+        background: @white;
 
         h4 {
             margin-bottom: 5px;
@@ -587,7 +587,7 @@ canvas {
                 color: @purp;
                 font-size: 13px;
                 &:hover {
-                    color: #fff;
+                    color: @white;
                     background: @purp;
                     font-weight: bold;
                     .transition;
@@ -603,7 +603,7 @@ canvas {
 //ARTICLE LISTING ENDS
 //SINGLE ARTICLE
 #post {
-    background: #fff;
+    background: @white;
     .post-title {
         h2 {
             font-size: 40px;
@@ -636,7 +636,7 @@ canvas {
         color: #267daf;
         &:hover {
             background: @articleborder;
-            color: #fff;
+            color: @white;
             transition: .4s;
             border: 0.7px solid @articleborder;
         }
@@ -652,9 +652,9 @@ canvas {
             padding: 20px 10px;
         }
         .context {
-            border: 1px solid #F0F0F0;
+
             border-radius: 5px;
-            color: #fff;
+            color: @white;
             background: #4AC6B7;
             margin: 5px 0 40px;
             padding: 25px 25px 10px;
@@ -705,7 +705,19 @@ canvas {
             font-style: italic;
             line-height: 1.8;
         }
-
+        .forum-link {
+            margin-top: 25px;
+            color: @white;
+            display: inline-block;
+            font-style: italic;
+            background: @purp;
+            padding: 15px 25px;
+            border-radius: 5px;
+            a {
+                color: powderblue;
+                font-weight: bold;
+            }
+        }
 
 
     } //ARTICLE SIDE BAR
@@ -728,11 +740,13 @@ canvas {
         .points {
             border: 1px solid #F0F0F0;
             border-radius: 5px;
-            padding: 20px;
+            padding: 20px 20px 10px;
             font-size: 16px;
-            a {
-                line-height: 2.5;
+            li {
+                margin-bottom: 10px;
+                list-style-type: none;
             }
+
         }
     }
 
@@ -750,20 +764,17 @@ canvas {
             }
         }
     }
-    .forum-link {
-        margin-bottom: 20px;
-        font-style: italic;
-    }
+
     .readnext {
         display: inline-block;
         border: 1px solid #F0F0F0;
         padding: 25px;
-        line-height: 2;
+        line-height: 1.8;
         margin-bottom: 50px;
         .border-radius(5px);
         span {
             display: block;
-            color: #9D9D9D;
+            color: @font-color;
         }
         a {
             padding: 10px 0;
@@ -788,7 +799,7 @@ canvas {
     }
     .card {
         padding: 20px;
-        background: #fff;
+        background: @white;
         border-radius: 5px;
         margin-bottom: 25px;
         min-height: 190px;
@@ -842,7 +853,7 @@ canvas {
 }
 
 footer {
-    background: #fff;
+    background: @white;
     padding: 90px 30px;
     position: relative;
     z-index: 5;
